@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#root {
+  background: #f6f4ea;
+}
+
+.App {
+  width: 80vw;
+  height: 100vh;
+}
+
+.container {
+  width: 70%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.container > h2 {
+  font-size: 3em;
+}
