@@ -191,5 +191,5 @@ SelectImg.propTypes = {
   upload: PropTypes.func.isRequired,
   goToNext: PropTypes.func.isRequired,
   imgLoading: PropTypes.bool.isRequired,
-  fileObj: PropTypes.object.isRequired
+  fileObj: PropTypes.object
 };
