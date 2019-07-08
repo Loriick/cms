@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Icon } from "antd";
+import PropTypes from "prop-types";
 
 const SelectImgStyled = styled.section`
   width: 100%;
@@ -154,6 +155,7 @@ export default function SelectImg({
               </label>
             </div>
           )}
+          {imageName && <p>{imageName}</p>}
         </div>
         <div className="image__title">
           <input
@@ -180,3 +182,14 @@ export default function SelectImg({
     </SelectImgStyled>
   );
 }
+
+SelectImg.propTypes = {
+  imgSrc: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  imageName: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  upload: PropTypes.func.isRequired,
+  goToNext: PropTypes.func.isRequired,
+  imgLoading: PropTypes.bool.isRequired,
+  fileObj: PropTypes.object.isRequired
+};

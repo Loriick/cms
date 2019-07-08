@@ -4,6 +4,7 @@ import { ADD_POST, POSTS } from "../../queries";
 import openNotificationWithIcon from "../../utils/Notification";
 import { FormStyled } from "./FormStyled";
 import { withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
 
 function Form({
   title,
@@ -76,3 +77,14 @@ function Form({
 }
 
 export default withRouter(Form);
+
+Form.propTypes = {
+  imgUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  photographeName: PropTypes.string,
+  description: PropTypes.string,
+  handleChange: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+  setToForm: PropTypes.func.isRequired
+};

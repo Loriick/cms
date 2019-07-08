@@ -36,8 +36,7 @@ export default function AddPost() {
     const file = await res.json();
     setImgUrl(file.secure_url);
     setImgLoading(false);
-    setImageName("");
-    console.log(imgUrl);
+    console.log(file);
   };
 
   const goToNext = fileObj => {
@@ -73,7 +72,7 @@ export default function AddPost() {
           photographeName={photographeName}
           setToForm={setToForm}
           title={title}
-          imgUrl={imgSrc}
+          imgUrl={imgUrl}
         />
       ) : (
         <SelectImg
