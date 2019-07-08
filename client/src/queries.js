@@ -8,6 +8,7 @@ export const POSTS = gql`
       imgUrl
       description
       photographeName
+      createdDate
     }
   }
 `;
@@ -20,6 +21,7 @@ export const POST = gql`
       imgUrl
       description
       photographeName
+      createdDate
     }
   }
 `;
@@ -28,6 +30,7 @@ export const ADD_POST = gql`
   mutation ADD_POST(
     $title: String!
     $imgUrl: String!
+    $createdDate: String!
     $description: String
     $photographeName: String
   ) {
@@ -37,6 +40,7 @@ export const ADD_POST = gql`
         imgUrl: $imgUrl
         description: $description
         photographeName: $photographeName
+        createdDate: $createdDate
       }
     ) {
       _id
@@ -44,6 +48,7 @@ export const ADD_POST = gql`
       imgUrl
       description
       photographeName
+      createdDate
     }
   }
 `;
