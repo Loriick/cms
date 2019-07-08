@@ -5,6 +5,7 @@ import { POSTS } from "../../queries";
 import Post from "../Post";
 import { LargeSpinner } from "../Loader";
 import openNotificationWithIcon from "../../utils/Notification";
+import moment from "moment";
 
 const PostsHomePreviewStyled = styled.section`
   width: 100%;
@@ -42,8 +43,10 @@ export default function PostsHomePreview() {
             "Il semblerait qu'il y ait un problème"
           );
         if (loading) return <LargeSpinner />;
-        console.log(data.posts);
+
         const { posts } = data;
+        console.log(moment(+posts[0].createdDate).format("MM/DD/YYYY"));
+
         return (
           <PostsHomePreviewStyled>
             <div className="container">
