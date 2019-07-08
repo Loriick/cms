@@ -79,7 +79,7 @@ export const UPDATE_POST = gql`
   }
 `;
 export const DELETE_POST = gql`
-  mutation DELETE_POST($ima_id: ID!) {
+  mutation DELETE_POST($_id: ID!) {
     deletePost(_id: $_id) {
       _id
     }

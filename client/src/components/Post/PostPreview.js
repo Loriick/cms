@@ -1,9 +1,10 @@
 import React from "react";
-import { Query } from "react-apollo";
-import { POST } from "../../queries";
+import { Query, Mutation } from "react-apollo";
+import { POST, DELETE_POST, POSTS } from "../../queries";
 import styled from "styled-components";
 import { Icon } from "antd";
 import { Link } from "react-router-dom";
+import openNotificationWithIcon from "../../utils/Notification";
 import PropTypes from "prop-types";
 
 const PostStyled = styled.section`
@@ -94,7 +95,10 @@ const PostStyled = styled.section`
   }
 `;
 
-export default function PostPreview({ match }) {
+export default function PostPreview({ match, history }) {
+  const handleDeletePost = deletePost => {
+    deletePost();
+  };
   return (
     <Query query={POST} variables={{ _id: match.params._id }}>
       {({ data, loading, error }) => {
@@ -126,7 +130,31 @@ export default function PostPreview({ match }) {
 
                 <div className="btn-container">
                   <button>Modifier</button>
-                  <button>Supprimer </button>
+                  <Mutation
+                    mutation={DELETE_POST}
+                    variables={{
+                      _id: match.params._id
+                    }}
+                    onCompleted={data => {
+                      console.log({ data });
+                      openNotificationWithIcon(
+                        "success",
+                        "Votre post a bien été supprimé!"
+                      );
+                      history.push("/");
+                    }}
+                    refetchQueries={() => [{ query: POSTS }]}
+                  >
+                    {(deletePost, { loading, error }) => {
+                      if (loading) return <p>loading</p>;
+                      if (error) return <p>error</p>;
+                      return (
+                        <button onClick={() => handleDeletePost(deletePost)}>
+                          Supprimer
+                        </button>
+                      );
+                    }}
+                  </Mutation>
                 </div>
               </div>
             </div>
