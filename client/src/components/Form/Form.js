@@ -25,7 +25,8 @@ function Form({
             title,
             description,
             photographeName,
-            imgUrl
+            imgUrl,
+            createdDate: Date.now()
           }}
           onCompleted={data => {
             console.log({ data });

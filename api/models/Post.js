@@ -12,7 +12,11 @@ const PostSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  photographeName: String
+  photographeName: String,
+  createdDate: {
+    type: Date,
+    required: true
+  }
 });
 
 module.exports = mongoose.model("Post", PostSchema);
