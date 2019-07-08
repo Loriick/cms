@@ -4,7 +4,7 @@ const resolvers = {
   Query: {
     posts: async (root, args, ctx) => {
       try {
-        return await Post.find();
+        return await Post.find().sort({ createdDate: "desc" });
       } catch (error) {
         console.log("error", error);
       }

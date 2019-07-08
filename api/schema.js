@@ -7,6 +7,7 @@ const typeDefs = gql`
     imgUrl: String!
     description: String
     photographeName: String
+    createdDate: String!
   }
 
   input PostInput {
@@ -14,6 +15,7 @@ const typeDefs = gql`
     imgUrl: String!
     description: String
     photographeName: String
+    createdDate: String!
   }
 
   input PostInputUpdate {
