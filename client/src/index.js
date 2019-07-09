@@ -6,12 +6,11 @@ import { ApolloProvider } from "react-apollo";
 import ApolloClient from "apollo-boost";
 
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
 //Components
-import App from "./App";
-import PostPreview from "./components/Post/PostPreview";
+import App from "./pages/Home/App";
+import Post from "./pages/Post";
 import Menu from "./components/Menu";
-import AddPost from "./components/Form/AddPost";
+import AddPost from "./pages/AddPost";
 
 //style
 import "antd/dist/antd.css";
@@ -27,7 +26,7 @@ function Root() {
         <Menu />
         <Switch>
           <Route path="/" exact component={App} />
-          <Route path="/post/:_id" component={PostPreview} />
+          <Route path="/post/:_id" component={Post} />
           <Route path="/add" component={AddPost} />
         </Switch>
       </div>

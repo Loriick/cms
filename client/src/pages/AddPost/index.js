@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useForm from "../../hooks/useForm";
-import SelectImg from "./SelectImg";
-import Form from "./Form";
+import SelectImg from "../../components/Form/SelectImg";
+import Form from "../../components/Form/Form";
 import { REACT_APP_CLOUDINARY_USERNAME } from "../../.keys.json";
 
 export default function AddPost() {
@@ -17,6 +17,7 @@ export default function AddPost() {
     photographeName: ""
   });
 
+  console.log(process.env.REACT_APP_CLOUDINARY_USERNAME);
   const uploadFileToCloudinary = async fileObj => {
     setImgLoading(true);
     const data = new FormData();
@@ -73,6 +74,7 @@ export default function AddPost() {
           setToForm={setToForm}
           title={title}
           imgUrl={imgUrl}
+          imgLoading={imgLoading}
         />
       ) : (
         <SelectImg
