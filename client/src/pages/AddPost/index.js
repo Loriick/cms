@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import useForm from "../../hooks/useForm";
 import SelectImg from "../../components/Form/SelectImg";
 import Form from "../../components/Form/Form";
-import { REACT_APP_CLOUDINARY_USERNAME } from "../../.keys.json";
+const USERNAME = process.env.REACT_APP_CLOUDINARY_USERNAME;
 
 export default function AddPost() {
   const [imgUrl, setImgUrl] = useState("");
@@ -17,17 +17,17 @@ export default function AddPost() {
     photographeName: ""
   });
 
-  console.log(process.env.REACT_APP_CLOUDINARY_USERNAME);
+  console.log(USERNAME);
   const uploadFileToCloudinary = async fileObj => {
     setImgLoading(true);
     const data = new FormData();
     data.append("file", fileObj);
     data.append("upload_preset", "raycms");
-    data.append("cloudname", REACT_APP_CLOUDINARY_USERNAME);
+    data.append("cloudname", USERNAME);
     console.log(fileObj);
 
     const res = await fetch(
-      `https://api.cloudinary.com/v1_1/${REACT_APP_CLOUDINARY_USERNAME}/image/upload`,
+      `https://api.cloudinary.com/v1_1/${USERNAME}/image/upload`,
       {
         method: "POST",
         body: data,
