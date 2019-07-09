@@ -45,7 +45,6 @@ export default function PostsHomePreview() {
         if (loading) return <LargeSpinner />;
 
         const { posts } = data;
-        console.log(moment(+posts[0].createdDate).format("MM/DD/YYYY"));
 
         return (
           <PostsHomePreviewStyled>
