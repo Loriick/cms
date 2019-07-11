@@ -2,7 +2,7 @@ const Post = require("./models/Post");
 
 const resolvers = {
   Query: {
-    posts: async (root, args, ctx) => {
+    posts: async (root, ctx) => {
       try {
         return await Post.find().sort({ createdDate: "desc" });
       } catch (error) {

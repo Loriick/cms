@@ -20,7 +20,7 @@ export default function ImgPreview({ imgSrc, upload, imageName }) {
           </label>
         </div>
       )}
-      {imageName && <p>{imageName}</p>}
+      {imageName && <p className="img-name">{imageName}</p>}
     </div>
   );
 }

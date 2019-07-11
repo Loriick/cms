@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const PostStyled = styled.section`
-  height: 80vh;
-  width: 100vw;
+  height: 95vh;
+  width: 80vw;
 
   > .back {
     display: inline-block;
@@ -20,7 +20,7 @@ export const PostStyled = styled.section`
     width: 80%;
     margin: 5% auto 0 auto;
     display: flex;
-
+    align-items: center;
     & > div:first-child {
       width: 50%;
       height: 100%;
@@ -40,10 +40,10 @@ export const PostStyled = styled.section`
       height: 100%;
       box-sizing: border-box;
       padding: 5% 0;
-      > div {
+      > div:nth-child(1) {
         width: 80%;
         height: 30%;
-        margin-bottom: 10%;
+        margin-bottom: 5%;
         p {
           font-size: 1.1em;
           > strong {
@@ -53,6 +53,7 @@ export const PostStyled = styled.section`
       }
       .btn-container {
         display: flex;
+        width: 80%;
         button {
           height: 4vh;
           width: 7vw;
@@ -77,7 +78,6 @@ export const PostStyled = styled.section`
           }
           &:nth-child(2) {
             background: #e06c42;
-            margin-right: 5%;
             > a {
               color: inherit;
             }

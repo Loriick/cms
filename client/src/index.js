@@ -11,6 +11,7 @@ import App from "./pages/Home/App";
 import Post from "./pages/Post";
 import Menu from "./components/Menu";
 import AddPost from "./pages/AddPost";
+import Header from "./components/Header";
 
 //style
 import "antd/dist/antd.css";
@@ -24,11 +25,14 @@ function Root() {
     <Router>
       <div style={{ display: "flex" }}>
         <Menu />
-        <Switch>
-          <Route path="/" exact component={App} />
-          <Route path="/post/:_id" component={Post} />
-          <Route path="/add" component={AddPost} />
-        </Switch>
+        <div>
+          <Header />
+          <Switch>
+            <Route path="/" exact component={App} />
+            <Route path="/post/:_id" component={Post} />
+            <Route path="/add" component={AddPost} />
+          </Switch>
+        </div>
       </div>
     </Router>
   );

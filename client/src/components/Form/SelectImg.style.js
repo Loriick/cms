@@ -19,6 +19,7 @@ export const SelectImgStyled = styled.section`
         display: flex;
         justify-content: center;
         align-items: center;
+
         border-radius: 3px;
         .upload {
           height: 4vh;
@@ -28,17 +29,30 @@ export const SelectImgStyled = styled.section`
           box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
           transition: 0.3s;
           cursor: pointer;
-          text-align: center;
           font-size: 1em;
           border-radius: 3px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          > .anticon {
+            margin-right: 3%;
+          }
           &:hover {
             box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
           }
         }
       }
+
       > img {
         object-fit: contain;
       }
+    }
+
+    .img-name {
+      text-align: center;
+      font-size: 1em;
+      margin: 3%;
     }
     .image__title {
       height: 10%;
@@ -53,7 +67,7 @@ export const SelectImgStyled = styled.section`
         height: 4vh;
         width: 100%;
         border-radius: 3px;
-        margin-top: 1%;
+        margin-top: 7%;
         padding: 0 3%;
         box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
         transition: 0.4s;

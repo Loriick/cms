@@ -9,7 +9,6 @@ export default function SelectImg({
   upload,
   imgSrc,
   handleChange,
-  imgLoading,
   imageName,
   fileObj,
   title
@@ -59,6 +58,5 @@ SelectImg.propTypes = {
   handleChange: PropTypes.func.isRequired,
   upload: PropTypes.func.isRequired,
   goToNext: PropTypes.func.isRequired,
-  imgLoading: PropTypes.bool.isRequired,
   fileObj: PropTypes.object
 };

@@ -10,7 +10,7 @@ import { PostsHomePreviewStyled } from "./Posts.style";
 export default function PostsHomePreview() {
   return (
     <Query query={POSTS}>
-      {({ data, loading, error }) => {
+      {({ data, loading, error, fetchMore }) => {
         if (error)
           return openNotificationWithIcon(
             "error",
@@ -25,6 +25,9 @@ export default function PostsHomePreview() {
           <PostsHomePreviewStyled>
             <div className="container">
               <h2>Mes derniers posts</h2>
+              <h4>
+                Vous avez {posts.length} photos postées sur le site en ce moment
+              </h4>
               {posts.length <= 0 ? (
                 <p>
                   Il y a encore de post pour l'instant!{" "}

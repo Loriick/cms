@@ -9,6 +9,11 @@ const typeDefs = gql`
     photographeName: String
     createdDate: String!
   }
+  type User {
+    _id: ID!
+    username: String!
+    password: String!
+  }
 
   input PostInput {
     title: String!
