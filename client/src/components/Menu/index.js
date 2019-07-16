@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
 const MenuStyled = styled.div`
-  width: 30vw;
+  width: 20vw;
   height: 100vh;
   display: flex;
   align-items: center;

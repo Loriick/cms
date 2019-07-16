@@ -1,39 +1,52 @@
 const { gql } = require("apollo-server");
 
 const typeDefs = gql`
-  type Post {
+  type Media {
     _id: ID!
     title: String!
-    imgUrl: String!
+    src: String!
     description: String
-    photographeName: String
+    by: String
     createdDate: String!
+    updatedDate: String
+    category: String!
+    type: String!
+  }
+  type User {
+    _id: ID!
+    username: String!
+    password: String!
   }
 
-  input PostInput {
+  input MediaIntput {
     title: String!
     imgUrl: String!
     description: String
     photographeName: String
+    updatedDate: String
     createdDate: String!
+    category: String!
+    type: String!
   }
 
-  input PostInputUpdate {
+  input MediaIntputUpdate {
     title: String
     imgUrl: String
     description: String
     photographeName: String
+    category: String
+    updatedDate: String
   }
 
   type Query {
-    posts: [Post]
-    post(_id: ID!): Post
+    medias: [Media]
+    media(_id: ID!): Media
   }
 
   type Mutation {
-    addPost(data: PostInput): Post
-    updatePost(_id: ID!, data: PostInputUpdate): Post
-    deletePost(_id: ID!): Post
+    addMedia(data: MediaIntput): Media
+    updateMedia(_id: ID!, data: MediaIntputUpdate): Media
+    deleteMedia(_id: ID!): Media
   }
 `;
 

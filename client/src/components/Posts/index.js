@@ -1,42 +1,16 @@
 import React from "react";
-import styled from "styled-components";
 import { Query } from "react-apollo";
 import { POSTS } from "../../queries";
 import Post from "../Post";
 import { LargeSpinner } from "../Loader";
 import openNotificationWithIcon from "../../utils/Notification";
 import moment from "moment";
-
-const PostsHomePreviewStyled = styled.section`
-  width: 100%;
-  padding-top: 3%;
-
-  .container {
-    > p {
-      text-align: center;
-      margin-top: 10%;
-      font-size: 1.8em;
-    }
-    > .posts__container {
-      display: flex;
-      flex-wrap: wrap;
-      height: 80%;
-      width: 100%;
-      margin: 0 auto;
-      justify-content: space-between;
-      padding-top: 10%;
-
-      > div:not(:last-child) {
-        margin-bottom: 10%;
-      }
-    }
-  }
-`;
+import { PostsHomePreviewStyled } from "./Posts.style";
 
 export default function PostsHomePreview() {
   return (
     <Query query={POSTS}>
-      {({ data, loading, error }) => {
+      {({ data, loading, error, fetchMore }) => {
         if (error)
           return openNotificationWithIcon(
             "error",
@@ -45,11 +19,15 @@ export default function PostsHomePreview() {
         if (loading) return <LargeSpinner />;
 
         const { posts } = data;
+        //console.log(moment(+posts[0].createdDate).format("MM/DD/YYYY"));
 
         return (
           <PostsHomePreviewStyled>
             <div className="container">
               <h2>Mes derniers posts</h2>
+              <h4>
+                Vous avez {posts.length} photos postées sur le site en ce moment
+              </h4>
               {posts.length <= 0 ? (
                 <p>
                   Il y a encore de post pour l'instant!{" "}

@@ -1,49 +1,49 @@
-const Post = require("./models/Post");
+const Media = require("./models/Media");
 
 const resolvers = {
   Query: {
-    posts: async (root, args, ctx) => {
+    medias: async (root, ctx) => {
       try {
-        return await Post.find().sort({ createdDate: "desc" });
+        return await Media.find().sort({ createdDate: "desc" });
       } catch (error) {
         console.log("error", error);
       }
     },
-    post: async (root, { _id }, ctx) => {
+    media: async (root, { _id }, ctx) => {
       try {
-        return Post.findOne({ _id });
+        return Media.findOne({ _id });
       } catch (error) {
         console.error("error", error);
       }
     }
   },
   Mutation: {
-    addPost: async (root, { data }, ctx) => {
+    addMedia: async (root, { data }, ctx) => {
       try {
-        const post = await new Post({
+        const media = await new Media({
           ...data
         }).save();
-        return post;
+        return media;
       } catch (error) {
         console.error("error", error);
       }
     },
-    updatePost: async (root, { _id, data }, ctx) => {
+    updateMedia: async (root, { _id, data }, ctx) => {
       try {
-        const updatedPost = await Post.findOneAndUpdate(
+        const updatedMedia = await Media.findOneAndUpdate(
           { _id },
           { $set: { ...data } },
           { new: true }
         );
-        return updatedPost;
+        return updatedMedia;
       } catch (error) {
         console.error("error", error);
       }
     },
-    deletePost: async (root, { _id }, ctx) => {
+    deleteMedia: async (root, { _id }, ctx) => {
       try {
-        const deletePost = await Post.findOneAndDelete({ _id });
-        return deletePost;
+        const deleteMedia = await Media.findOneAndDelete({ _id });
+        return deleteMedia;
       } catch (error) {
         console.error("error", error);
       }

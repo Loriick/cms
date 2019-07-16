@@ -2,7 +2,7 @@ import React from "react";
 import { Mutation } from "react-apollo";
 import { ADD_POST, POSTS } from "../../queries";
 import openNotificationWithIcon from "../../utils/Notification";
-import { FormStyled } from "./FormStyled";
+import { FormStyled } from "./Form.style";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 
@@ -14,7 +14,8 @@ function Form({
   handleChange,
   handleSubmit,
   history,
-  setToForm
+  setToForm,
+  imgLoading
 }) {
   return (
     <FormStyled>
@@ -62,7 +63,7 @@ function Form({
                   placeholder="Description"
                 />
                 <div className="btn-container">
-                  <button type="submit" disabled={loading}>
+                  <button type="submit" disabled={loading || imgLoading}>
                     Enregister
                   </button>
                   <button onClick={() => setToForm(false)}>Retour</button>
@@ -86,5 +87,6 @@ Form.propTypes = {
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
-  setToForm: PropTypes.func.isRequired
+  setToForm: PropTypes.func.isRequired,
+  imgLoading: PropTypes.bool.isRequired
 };
