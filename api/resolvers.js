@@ -1,4 +1,6 @@
 const Media = require("./models/Media");
+const User = require("./models/User");
+const UserInfo = require("./models/UserInfo");
 
 const resolvers = {
   Query: {
@@ -12,6 +14,13 @@ const resolvers = {
     media: async (root, { _id }, ctx) => {
       try {
         return Media.findOne({ _id });
+      } catch (error) {
+        console.error("error", error);
+      }
+    },
+    userInfo: async (root, ctx) => {
+      try {
+        return await UserInfo.find();
       } catch (error) {
         console.error("error", error);
       }
@@ -47,7 +56,9 @@ const resolvers = {
       } catch (error) {
         console.error("error", error);
       }
-    }
+    },
+    addUserInfo: async (root, args, ctx) => {},
+    updateUserInfo: async (root, args, ctx) => {}
   }
 };
 

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const ContentSchema = new mongoose.Schema({
+const UserInfoSchema = new mongoose.Schema({
   title: {
     type: String,
     required: true,
@@ -18,3 +18,5 @@ const ContentSchema = new mongoose.Schema({
   instagram: String,
   email: String
 });
+
+module.exports = mongoose.model("Content", UserInfoSchema);
